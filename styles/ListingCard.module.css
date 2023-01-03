@@ -1,0 +1,389 @@
+/* .container1 {
+  display: flex;
+  background-color: #ffffff;
+} */
+
+/* .myTabs {
+  display: flex;
+}
+
+.myTabs .tab {
+  width: 100%;
+  color: white;
+  display: none;
+  margin-top: 30px;
+} */
+
+.cardContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.cardContainer .card {
+  margin-right: 30px;
+  height: 440px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  width: 30%;
+  margin-top: 30px;
+}
+
+.cardContainer .card:hover .image {
+  transform: scale(2);
+  filter: brightness(100%);
+}
+
+.imageContainer .image {
+  transform-origin: 50% 65%;
+  transition: transform 5s, filter 3s ease-in-out;
+  filter: brightness(70%);
+}
+
+/* .imageContainer:hover .image {
+  transform: scale(2);
+  filter: brightness(100%);
+} */
+.headParaContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  word-break: break-word;
+}
+.headParaContainer h1 {
+  font-size: 26px !important;
+  margin-left: 1px !important;
+  color: black;
+}
+
+.headParaContainer h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #98948b;
+  margin: 0px 15px;
+  text-align: left;
+}
+.headParaContainer h4 {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  color: teal;
+  margin: 5px 15px;
+  margin-top: 20px;
+}
+/* .myTabs input[type="radio"]:checked + label + .tab {
+  display: block;
+  transition: 3s ease-in-out;
+} */
+
+.cardPropContainer {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.roomProperties {
+  display: flex;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1299px) {
+  .cardContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .cardContainer .card {
+    margin-right: 30px;
+    height: 440px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 29%;
+    margin-top: 30px;
+  }
+
+  .cardContainer .card:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  }
+
+  .imageContainer .image {
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+    filter: brightness(70%);
+  }
+
+  /* .imageContainer:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  } */
+  .headParaContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-word;
+  }
+  .headParaContainer h1 {
+    font-size: 26px !important;
+    margin-left: 1px !important;
+    color: black;
+  }
+
+  .headParaContainer h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #98948b;
+    margin: 0px 15px;
+    text-align: left;
+  }
+  .headParaContainer h4 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    color: teal;
+    margin: 5px 15px;
+    margin-top: 20px;
+  }
+  /* .myTabs input[type="radio"]:checked + label + .tab {
+    display: block;
+    transition: 3s ease-in-out;
+  } */
+
+  .cardPropContainer {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .roomProperties {
+    display: flex;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .cardContainer .card {
+    height: 440px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .cardContainer .card:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  }
+
+  .imageContainer .image {
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+    filter: brightness(70%);
+  }
+
+  /* .imageContainer:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  } */
+  .headParaContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-word;
+  }
+  .headParaContainer h1 {
+    font-size: 26px !important;
+    margin-left: 1px !important;
+    color: black;
+  }
+
+  .headParaContainer h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #98948b;
+    margin: 0px 15px;
+    text-align: left;
+  }
+  .headParaContainer h4 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    color: teal;
+    margin: 5px 15px;
+    margin-top: 20px;
+  }
+  /* .myTabs input[type="radio"]:checked + label + .tab {
+    display: block;
+    transition: 3s ease-in-out;
+  } */
+
+  .cardPropContainer {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .roomProperties {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .cardContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .cardContainer .card {
+    margin-right: 30px;
+    height: 440px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 45%;
+    margin-top: 30px;
+  }
+
+  .cardContainer .card:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  }
+
+  .imageContainer .image {
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+    filter: brightness(70%);
+  }
+
+  /* .imageContainer:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  } */
+  .headParaContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-word;
+  }
+  .headParaContainer h1 {
+    font-size: 26px !important;
+    margin-left: 1px !important;
+    color: black;
+  }
+
+  .headParaContainer h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #98948b;
+    margin: 0px 15px;
+    text-align: left;
+  }
+  .headParaContainer h4 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    color: teal;
+    margin: 5px 15px;
+    margin-top: 20px;
+  }
+  /* .myTabs input[type="radio"]:checked + label + .tab {
+    display: block;
+    transition: 3s ease-in-out;
+  } */
+
+  .cardPropContainer {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .roomProperties {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 480px) {
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .cardContainer .card {
+    height: 440px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .cardContainer .card:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  }
+
+  .imageContainer .image {
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+    filter: brightness(70%);
+  }
+
+  /* .imageContainer:hover .image {
+    transform: scale(2);
+    filter: brightness(100%);
+  } */
+  .headParaContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-word;
+  }
+  .headParaContainer h1 {
+    font-size: 26px !important;
+    margin-left: 1px !important;
+    color: black;
+  }
+
+  .headParaContainer h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #98948b;
+    margin: 0px 15px;
+    text-align: left;
+  }
+  .headParaContainer h4 {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    color: teal;
+    margin: 5px 15px;
+    margin-top: 20px;
+  }
+  /* .myTabs input[type="radio"]:checked + label + .tab {
+    display: block;
+    transition: 3s ease-in-out;
+  } */
+
+  .cardPropContainer {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  .roomProperties {
+    display: flex;
+  }
+}

@@ -1,0 +1,78 @@
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+}
+.contactHeader {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ourContactContainer {
+  display: flex;
+  width: 100%;
+  margin: 70px 0;
+}
+
+.ourContactCardLeft {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  line-height: 60px;
+}
+.ourContactCardRight {
+  display: flex;
+  width: 60%;
+}
+
+.contactCard {
+  width: 80%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 2, 0.14), 0 3px 5px 0 rgba(0, 0, 3, 0.14);
+  padding: 50px;
+}
+
+.contactInputGroup {
+  margin-bottom: 20px;
+}
+
+.contactInputGroup input {
+  height: 40px;
+}
+
+@media screen and (min-width: 470px) and (max-width: 1024px) {
+  .ourContactContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 70px 0;
+  }
+
+  .ourContactCardLeft {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    line-height: 60px;
+  }
+  .ourContactCardRight {
+    display: flex;
+    width: 100%;
+  }
+
+  .contactCard {
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 2, 0.14), 0 3px 5px 0 rgba(0, 0, 3, 0.14);
+    padding: 50px;
+  }
+
+  .contactInputGroup {
+    margin-bottom: 20px;
+  }
+
+  .contactInputGroup input {
+    height: 40px;
+  }
+}

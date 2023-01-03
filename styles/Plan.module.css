@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6fbfc;
+  justify-content: center;
+  align-items: center;
+  padding-top: 350px;
+}
+
+.container h1 {
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 34px;
+  color: #222222;
+  text-align: center;
+}
+.container p {
+  text-align: center;
+}
+.developersContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 20px;
+}
+
+.developersContainer h2 {
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 34px;
+  color: #222222;
+  text-align: center;
+}

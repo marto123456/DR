@@ -1,0 +1,125 @@
+.newsletterContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+
+.newsletterImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(245, 0, 0, 0.2),
+      rgba(117, 19, 93, 0.7)
+    ),
+    url("../public/img/bg/bg1.jpg");
+  height: 500px;
+}
+.newsletterImage h1 {
+  font-size: 36px;
+  line-height: 47px;
+  color: white;
+  font-weight: 400;
+  width: 70%;
+  margin-bottom: 20px;
+}
+.newsletterInput {
+  height: 50px;
+  width: 600px;
+  outline: none;
+  width: 65%;
+}
+
+.inputGroup {
+  display: flex;
+  align-content: stretch;
+  width: 100%;
+  margin: 0 20px;
+}
+.inputGroup button {
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: red;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  width: 30%;
+}
+.inputGroup button:hover {
+  background-color: rgb(162, 37, 37);
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .newsletterImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 96%;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(245, 0, 0, 0.2),
+        rgba(117, 19, 93, 0.7)
+      ),
+      url("../public/img/bg/bg1.jpg");
+    height: 500px;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 480px) {
+  .newsletterImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 96%;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(245, 0, 0, 0.2),
+        rgba(117, 19, 93, 0.7)
+      ),
+      url("../public/img/bg/bg1.jpg");
+    height: 500px;
+  }
+
+  .newsletterImage h1 {
+    font-size: 36px;
+    line-height: 47px;
+    color: white;
+    font-weight: 400;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .newsletterInput {
+    height: 50px;
+    outline: none;
+    width: 90%;
+  }
+
+  .inputGroup {
+    display: flex;
+    align-content: stretch;
+    width: 100%;
+    margin: 0 20px;
+    flex-direction: column;
+  }
+  .inputGroup button {
+    padding: 15px 50px;
+    margin: 20px 0;
+    padding-right: 50px;
+    background-color: red;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    width: 90%;
+  }
+}

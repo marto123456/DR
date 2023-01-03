@@ -1,0 +1,56 @@
+.singleListingTP {
+  display: flex;
+  width: 100%;
+  margin: 0 30px;
+}
+
+.singleListingTitle {
+  width: 80%;
+}
+.singleListingPrice {
+  width: 20%;
+}
+
+.singleListingContainer {
+  width: 100%;
+  display: flex;
+  margin: 0 30px;
+}
+
+.singleListingRight {
+  width: 30%;
+  margin-right: 30px;
+}
+
+.singleListingLeft {
+  width: 70%;
+  margin-right: 30px;
+}
+.singleListingLeft .listingsImage {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+.singleListingDescription {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+
+.houseAmenities {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.beds {
+  display: flex;
+}
+
+.singleListingLocation {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+
+.singleListingVideo {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}

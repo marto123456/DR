@@ -1,0 +1,88 @@
+https://www.kindacode.com/article/how-to-use-font-awesome-icons-in-next-js/
+
+npm install --save @fortawesome/free-brands-svg-icons  npm install --save @fortawesome/free-regular-svg-
+
+https://blog.logrocket.com/how-to-build-tab-component-react/
+
+CREATE A TAB MANUALLY
+CREATE a FOLDERS IN COMPONENTS CALLED TabComponent with Tabs.jsx in it
+create a folder called AllTabs with two files in it FirstTab.jsx and SecondTab.jsx
+
+Tab.jsx content
+import React, { useState } from "react"
+import styles from "../../styles/Tabs.module.css"
+import FirstTab from "../AllTabs/FirstTab"
+import SecondTab from "../AllTabs/SecondTab"
+
+const Tabs = () => {
+  const [activeTab, setActiveTab] = useState("tab1")
+  //Function to handle tab switching
+   const handleTab1 = () => {
+  //   //update the state to tab1
+     setActiveTab("tab1")
+   }
+   const handleTab2 = () => {
+     setActiveTab("tab2")
+   }
+  return (
+    <>
+      <div className={styles.Tabs}>
+        <ul className={styles.nav}>
+ 
+         <li
+            className={activeTab === "tab1" ? `${styles.active}` : ""}
+            onClick={handleTab1}
+          >
+            Tab 1
+          </li> 
+          <li
+            className={activeTab === "tab2" ? `${styles.active}` : ""}
+            onClick={handleTab2}
+          >
+            Tab 2
+          </li> 
+        </ul>
+        <div className={styles.outlet}>
+          {activeTab === "tab1" ? <FirstTab /> : <SecondTab />} 
+          
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default Tabs
+
+
+FirstTab.jsx
+import React, { useEffect } from "react"
+import styles from "../../styles/Tabs.module.css"
+
+function FirstTab() {
+  return (
+    <>
+      <div className={styles.FirstTab}>
+        <p>First Tab</p>
+      </div>
+    </>
+  )
+}
+
+export default FirstTab
+
+
+SecondTab.jsx
+import React, { useEffect } from "react"
+import styles from "../../styles/Tabs.module.css"
+
+function SecondTab() {
+  return (
+    <>
+      <div className={styles.SecondTab}>
+        <p>Second Tab</p>
+      </div>
+    </>
+  )
+}
+
+export default SecondTab

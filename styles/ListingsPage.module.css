@@ -1,0 +1,85 @@
+.listingsLeftContainer {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listingsCard {
+  width: 47%;
+  height: 480px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.listingsImage {
+  width: 100%;
+  height: 240px;
+}
+
+.listingsTP {
+  margin: 5px 15px;
+}
+
+.listingsRoomProperties {
+  display: flex;
+  padding: 5px 10px;
+  justify-content: space-between;
+}
+
+.listingsRightContainer {
+  margin-right: 30px;
+  width: 20%;
+}
+
+.listingsSearchCard {
+  flex: 1;
+  height: 200px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+
+.listingsEnquireCard {
+  flex: 1;
+  height: 200px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #04534f;
+  color: #000;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #04534f;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #04534f;
+}
+
+.paginationDisabled a {
+  color: white;
+  background-color: grey;
+}
+
+.paginationDisabled a:hover {
+  color: white;
+  background-color: grey;
+}

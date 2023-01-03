@@ -1,0 +1,243 @@
+.skewedServicesContainer {
+  position: relative;
+  width: 100%;
+  height: 750px;
+  background-image: linear-gradient(
+      90deg,
+      rgba(10, 9, 9, 0.9),
+      rgba(14, 87, 133, 0.2)
+    ),
+    url("../public/img/bg/bg2.jpg");
+  transform-origin: top left;
+  transform: skewY(4deg);
+  padding-top: 60px;
+  background-position: center center;
+  padding-bottom: 60px;
+  color: white;
+}
+/* .skewedServicesContainer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  z-index: -1;
+  transform-origin: top left;
+  transform: skewY(4deg);
+} */
+
+.servicesContainer {
+  display: flex;
+  width: 79%;
+  margin: auto;
+  position: relative;
+  transform: skewY(-4deg);
+}
+.servicesLeft {
+  flex: 1;
+}
+.servicesLeft h2 {
+  font-size: 34px;
+  line-height: 37px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  width: 80%;
+  font-family: "Roboto", sans-serif;
+}
+.servicesLeft p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 27px;
+  color: white;
+  width: 75%;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+}
+/* .servicesLeft ul {
+  list-style-image: url("../public/img/icons/checked.png");
+}
+.servicesLeft ul li::marker {
+  font-size: 1px;
+} */
+.servicesLeft ul {
+  list-style-image: url("../public/img/icons/checked6.svg");
+  margin-left: 40px;
+}
+
+.servicesLeft ul li {
+  margin-bottom: 10px;
+}
+
+.servicesLeft ul li:last-child {
+  margin-bottom: 40px;
+}
+
+.servicesLeft button {
+  padding: 20px;
+  width: 50%;
+  color: white;
+  background-color: #04534f;
+}
+.servicesRight {
+  flex: 1;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .skewedServicesContainer {
+    height: 1200px;
+  }
+  .servicesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: skewY(-4deg);
+  }
+  .servicesLeft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+  }
+  .servicesLeft h1 {
+    font-size: 34px;
+    line-height: 37px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
+  }
+  .servicesLeft p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    color: white;
+    width: 75%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .servicesLeft ul {
+    width: 40%;
+  }
+
+  .servicesLeft button {
+    padding: 20px;
+    width: 50%;
+  }
+  .servicesRight {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .skewedServicesContainer {
+    height: 1200px;
+  }
+  .servicesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: skewY(-4deg);
+  }
+  .servicesLeft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+  }
+  .servicesLeft h1 {
+    font-size: 34px;
+    line-height: 37px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
+  }
+  .servicesLeft p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    color: white;
+    width: 75%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .servicesLeft ul {
+    width: 40%;
+  }
+
+  .servicesLeft button {
+    padding: 20px;
+    width: 50%;
+  }
+  .servicesRight {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 200px) and (max-width: 480px) {
+  .skewedServicesContainer {
+    height: 1200px;
+  }
+  .servicesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: skewY(-4deg);
+  }
+  .servicesLeft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+  }
+  .servicesLeft h1 {
+    font-size: 34px;
+    line-height: 37px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
+  }
+  .servicesLeft p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    color: white;
+    width: 75%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .servicesLeft ul {
+    width: 40%;
+  }
+
+  .servicesLeft button {
+    padding: 20px;
+    width: 50%;
+  }
+  .servicesRight {
+    flex: 1;
+  }
+}

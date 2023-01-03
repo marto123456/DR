@@ -1,0 +1,108 @@
+.listingFormContainer {
+  background-color: #f1f1f1;
+  padding: 30px 0;
+}
+
+.listingForm {
+  width: 70%;
+  margin: 0 auto;
+  background-color: white;
+  padding-bottom: 80px;
+}
+.containerForBottons {
+  display: flex;
+  width: 100%;
+}
+.listingFormButtonContainer {
+  display: flex;
+  width: 100%;
+}
+.listingFormButton {
+  background-color: blueviolet;
+  color: white;
+  padding: 20px 60px;
+  margin-left: 30px;
+  cursor: pointer;
+  width: 93%;
+}
+
+.FirstStepContainer form ol {
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0px;
+  list-style-type: none;
+}
+/* @media (max-width: 768px) {
+  width: 90%;
+} */
+
+.FirstStepContainer form ol li {
+  flex: 1;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  color: #222222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #f1f1f1;
+}
+.FirstStepContainer form ol li .active {
+  background-color: red;
+}
+
+.FirstStepContainer form p {
+  margin-left: 30px;
+}
+.FirstStepContainer form h3 {
+  margin-left: 30px;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.formControl input {
+  height: 50px;
+  outline: none;
+  border: none;
+  background: #f1f1f1;
+}
+.formControl textarea {
+  height: 150px;
+  outline: none;
+  border: none;
+  background: #f1f1f1;
+}
+
+.formControlDisplayFlex {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.firstStepSelect {
+  height: 35px;
+}
+.firstStepSelect option {
+  padding: 0 10px;
+}
+.amenitiesInputContainer label {
+  display: inline-block;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.amenitiesInputContainer input {
+  vertical-align: middle;
+}
+.amenitiesInputContainer label span {
+  vertical-align: middle;
+}
+.checked-item {
+  text-decoration: line-through;
+}

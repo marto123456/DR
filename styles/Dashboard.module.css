@@ -1,0 +1,109 @@
+.dashboardHeader {
+  display: flex;
+  text-align: center;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ourDashboardContainer {
+  display: flex;
+  width: 100%;
+  padding: 0 40px;
+  gap: 20px;
+  margin: 70px 0;
+}
+
+.dashboardLeft {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  height: 100vh;
+}
+.dashboardLeft h2 {
+  text-align: center;
+}
+
+.dashboardUl {
+  list-style-type: none;
+  margin: 0 20px;
+}
+.dashboardUl li {
+  margin: 20px 0;
+}
+.dashboardRight {
+  width: 60%;
+  padding: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+}
+
+.dashboardListingCard {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 130px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+}
+
+.dashboardListingItem {
+  width: 50%;
+}
+.dashboardOptions {
+  display: flex;
+  width: 15%;
+}
+
+.profileForm {
+  padding: 20px;
+}
+
+.profileForm .inputGroup {
+  margin: 20px 0;
+}
+
+.profileForm .inputGroup input {
+  height: 50px;
+}
+.profileForm button {
+  height: 50px;
+  background-color: blue;
+  color: white;
+}
+
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #04534f;
+  color: #000;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #04534f;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #04534f;
+}
+
+.paginationDisabled a {
+  color: white;
+  background-color: grey;
+}
+
+.paginationDisabled a:hover {
+  color: white;
+  background-color: grey;
+}
