@@ -4,7 +4,6 @@ import { useRouter } from "next/router"
 import ReactPaginate from "react-paginate"
 import ReactWhatsapp from "react-whatsapp"
 import Link from "next/link"
-import { config } from "../config"
 
 import Layout2 from "../components/Layouts/Layout2"
 import ListingCard from "../components/Listings/ListingCard"

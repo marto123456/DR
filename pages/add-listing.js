@@ -26,7 +26,7 @@ import Layout2 from "../components/Layouts/Layout2"
 import ListingForm from "../components/ListingForm/ListingForm"
 import { AuthContext } from "../context/authContext"
 
-const addlisting = () => {
+const Addlisting = () => {
   const { currentUser } = useContext(AuthContext)
   console.log(currentUser)
   if (!currentUser.username) {
@@ -68,6 +68,6 @@ const addlisting = () => {
   )
 }
 
-addlisting.getLayout = (page) => <Layout2>{page}</Layout2>
+Addlisting.getLayout = (page) => <Layout2>{page}</Layout2>
 
-export default addlisting
+export default Addlisting

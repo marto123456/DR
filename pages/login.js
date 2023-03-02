@@ -82,7 +82,7 @@ function Login() {
                 </button>
                 {err && <p>{err}</p>}
                 <p>
-                  Don't have an account ? <Link href="/register">Sign Up</Link>
+                  Do not have an account ? <Link href="/register">Sign Up</Link>
                 </p>
               </form>
             </div>

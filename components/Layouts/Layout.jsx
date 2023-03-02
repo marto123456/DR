@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
           <div className={styles.bannerTextContainer}>
             <h1>Find A Dream Apartment in Abuja</h1>
             <h4>
-              We are recognized for exceeding client's expectations and
+              We are recognized for exceeding clients expectations and
               delivering great results through dedication, ease of process, and
               extraordinary services to our worldwide clients.
             </h4>

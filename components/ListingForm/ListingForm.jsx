@@ -28,7 +28,7 @@ function ListingForm({ children, state }) {
   const [file, setFile] = useState([])
   const [fileURLs, setFileURLs] = useState([])
   const [page, setPage] = useState(0)
-
+  const location = useRouter()
   //for single upload
   // const upload = async () => {
   //   try {
@@ -170,7 +170,7 @@ function ListingForm({ children, state }) {
             },
             { withCredentials: true }
           )
-      useRouter().push("/listings")
+      location.push("/listings")
     } catch (err) {
       console.log(err)
     }

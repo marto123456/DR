@@ -10,7 +10,7 @@ import Layout2 from "../components/Layouts/Layout2"
 import Service from "../components/Service"
 import styles from "../styles/Dashboard.module.css"
 import FrontEndAdmin from "../components/Layouts/FrontEndAdmin"
-const dashboard = () => {
+const Dashboard = () => {
   const { currentUser } = useContext(AuthContext)
 
   const [listings, setListings] = useState([])
@@ -85,6 +85,6 @@ const dashboard = () => {
   }
 }
 
-dashboard.getLayout = (page) => <Layout2>{page}</Layout2>
+Dashboard.getLayout = (page) => <Layout2>{page}</Layout2>
 
-export default dashboard
+export default Dashboard

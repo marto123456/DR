@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { useRouter } from "next/router"
 import Sidebar from "../FrontEnd/SideBar"
 import styles from "../../styles/Dashboard.module.css"
+import Layout2 from "./Layout2"
 
 const FrontEndAdmin = ({ children }) => {
   let dashboardTitle
@@ -9,11 +10,11 @@ const FrontEndAdmin = ({ children }) => {
 
   const loc = useRouter().asPath.split("/")[1]
   console.log(loc)
-  if (useRouter().asPath.split("/")[1] === "my-properties") {
+  if (loc === "my-properties") {
     dashboardTitle = "My Properties"
-  } else if (useRouter().asPath.split("/")[1] === "dashboard") {
+  } else if (loc === "dashboard") {
     dashboardTitle = "Dashboard"
-  } else if (useRouter().asPath.split("/")[1] === "profile") {
+  } else if (loc === "profile") {
     dashboardTitle = "Profile"
   } else {
     dashboardTitle = ""

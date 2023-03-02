@@ -15,7 +15,7 @@ import SecondStep from "../../../components/ListingFormSteps/edit/SecondStep"
 import ThirdStep from "../../../components/ListingFormSteps/edit/ThirdStep"
 import Layout2 from "../../../components/Layouts/Layout2"
 
-function editListing() {
+function EditListing() {
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
   const [price, setPrice] = useState("")
@@ -295,6 +295,6 @@ function editListing() {
   )
 }
 
-editListing.getLayout = (page) => <Layout2>{page}</Layout2>
+EditListing.getLayout = (page) => <Layout2>{page}</Layout2>
 
-export default editListing
+export default EditListing

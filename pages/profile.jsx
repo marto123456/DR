@@ -6,7 +6,7 @@ import Service from "../components/Service"
 import { AuthContext } from "../context/authContext"
 import styles from "../styles/Dashboard.module.css"
 import FrontEndAdmin from "../components/Layouts/FrontEndAdmin"
-const profile = () => {
+const Profile = () => {
   const { currentUser } = useContext(AuthContext)
   return (
     <>
@@ -33,6 +33,6 @@ const profile = () => {
   )
 }
 
-profile.getLayout = (page) => <Layout2>{page}</Layout2>
+Profile.getLayout = (page) => <Layout2>{page}</Layout2>
 
-export default profile
+export default Profile
