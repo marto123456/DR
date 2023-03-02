@@ -1,13 +1,28 @@
 import React, { useEffect } from "react"
+import { useRouter } from "next/router"
 import Sidebar from "../FrontEnd/SideBar"
 import styles from "../../styles/Dashboard.module.css"
 
 const FrontEndAdmin = ({ children }) => {
+  let dashboardTitle
+  let dashboard = useRouter().asPath.replace("/dashboard", "")
+
+  const loc = useRouter().asPath.split("/")[1]
+  console.log(loc)
+  if (useRouter().asPath.split("/")[1] === "my-properties") {
+    dashboardTitle = "My Properties"
+  } else if (useRouter().asPath.split("/")[1] === "dashboard") {
+    dashboardTitle = "Dashboard"
+  } else if (useRouter().asPath.split("/")[1] === "profile") {
+    dashboardTitle = "Profile"
+  } else {
+    dashboardTitle = ""
+  }
   return (
     <>
       <div className={styles.dashboardContainer}>
         <div className={styles.dashboardHeader}>
-          <h1>Dashboard</h1>
+          <h1>{dashboardTitle}</h1>
         </div>
         <div className={styles.ourDashboardContainer}>
           <Sidebar />

@@ -2,6 +2,7 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import EllipsisText from "react-ellipsis-text"
 import ReactPaginate from "react-paginate"
 import styles from "../../styles/ListingsPage.module.css"
 const ListingCard = ({ listingsPerPage, pagesVisited, getText, listings }) => {
@@ -16,7 +17,7 @@ const ListingCard = ({ listingsPerPage, pagesVisited, getText, listings }) => {
                 <img
                   alt=""
                   className={styles.listingsImage}
-                  src="../../img/bg/bg1.jpg"
+                  src={`../../upload/${JSON.parse(listing.img)[0]}`}
                   width="400%"
                   height="250%"
                 />
@@ -26,7 +27,9 @@ const ListingCard = ({ listingsPerPage, pagesVisited, getText, listings }) => {
                   <h1 className="listingTitle">{listing.title}</h1>
                 </Link>
                 <h3 className="listingPrice">from $ {listing.price}</h3>
-                <p>{getText(listing.desc)}</p>
+                <p>
+                  <EllipsisText text={getText(listing.desc)} length={"100"} />
+                </p>
               </div>
 
               <hr />
@@ -36,8 +39,8 @@ const ListingCard = ({ listingsPerPage, pagesVisited, getText, listings }) => {
               </div>
               <hr />
               <div className={styles.listingsRoomProperties}>
-                <h5>Lobby</h5>
-                <p style={{ fontWeight: "500" }}>3</p>
+                <h5>Bathrooms: </h5>
+                <p style={{ fontWeight: "500" }}>{listing.bathrooms}</p>
               </div>
               <hr />
               <div className={styles.listingsRoomProperties}>

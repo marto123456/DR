@@ -2,15 +2,19 @@ import axios from "axios"
 import React, { useContext, useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import ReactPaginate from "react-paginate"
+import ReactWhatsapp from "react-whatsapp"
 import Link from "next/link"
+import { config } from "../config"
 
 import Layout2 from "../components/Layouts/Layout2"
 import ListingCard from "../components/Listings/ListingCard"
 import styles from "../styles/ListingsPage.module.css"
 
+console.log("Version: ", process.env.NEXT_PUBLIC_ENV)
 const Listings = () => {
   const [listings, setListings] = useState([])
-
+  const [inquirePhone, setInquirePhone] = useState("")
+  const [inquireMessage, setInquireMessage] = useState("")
   // const cat = useRouter()
   const cat = useRouter().asPath.replace("/listings", "")
 
@@ -20,7 +24,7 @@ const Listings = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `process.env.REACT_APP_API_URL/listings/listings${cat}`
+          `${process.env.NEXT_PUBLIC_ENV}/listings/listings${cat}`
         )
         // console.log(res)
         setListings(res.data)
@@ -37,7 +41,7 @@ const Listings = () => {
   }
   const [pageNumber, setPageNumber] = useState(0)
 
-  const listingsPerPage = 2
+  const listingsPerPage = 10
   const pagesVisited = pageNumber * listingsPerPage
 
   const pageCount = Math.ceil(listings.length / listingsPerPage)
@@ -68,6 +72,18 @@ const Listings = () => {
             <div className={styles.listingsRightContainer}>
               <div className={styles.listingsSearchCard}>
                 <h2>Search By Category</h2>
+                <Link className="link" href="/listings?cat=apartments">
+                  <button>Apartments</button>
+                </Link>
+                <Link className="link" href="/listings?cat=hotels">
+                  <button>Hotels</button>
+                </Link>
+                <Link className="link" href="/listings?cat=homes">
+                  <button>Homes</button>
+                </Link>
+                <Link className="link" href="/listings?cat=penthouses">
+                  <button>PentHouse</button>
+                </Link>
               </div>
               <div className={styles.listingsEnquireCard}>
                 <h2>Inquire Now</h2>
@@ -77,20 +93,33 @@ const Listings = () => {
                     <input type="text" name="name" />
                   </div>
                   <div>
-                    <label>Email</label>
-                    <input type="email" name="email" />
+                    <label>Phone</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      onChange={(e) => setInquirePhone(e.target.value)}
+                    />
                   </div>
                   <div>
                     <label>Message</label>
-                    <input type="text" name="message" />
+                    <input
+                      type="text"
+                      name="message"
+                      onChange={(e) => setInquireMessage(e.target.value)}
+                    />
                   </div>
-                  <button>Submit</button>
+                  <ReactWhatsapp number={inquirePhone} message={inquireMessage}>
+                    Open Whatsapp
+                  </ReactWhatsapp>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <div style={{ margin: "60px auto", width: "50%" }}>
+        <div
+          className={styles.paginateContainerClass}
+          style={{ margin: "60px auto", width: "20%" }}
+        >
           <ReactPaginate
             previousLabel={"Previous"}
             nextLabel={"Next"}

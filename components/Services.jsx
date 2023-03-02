@@ -24,7 +24,7 @@ const Services = () => {
               <li>Home Loan assistance</li>
             </ul>
             <Link href="/contact">
-              <button>Contact Us Today</button>
+              <button style={{ cursor: "pointer" }}>Contact Us Today</button>
             </Link>
           </div>
           <div className={styles.servicesRight}>

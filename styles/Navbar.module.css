@@ -19,6 +19,9 @@
 .navLogo {
   flex: 1;
 }
+.navigationlinks {
+  display: none;
+}
 .navLists {
   display: flex;
   flex: 1;
@@ -120,4 +123,25 @@
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.mobilelink {
+  width: 100%;
+}
+.mobilelink.active {
+  background-color: blue;
+}
+.mobilenavwrapper {
+  display: none;
+}
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .navLogo {
+    flex: 1;
+  }
+  .navLists {
+    display: none;
+  }
+  .navButtonList {
+    display: none;
+  }
 }

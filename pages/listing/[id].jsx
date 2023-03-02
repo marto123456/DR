@@ -4,6 +4,8 @@ import Router, { useRouter } from "next/router"
 import axios from "axios"
 import Link from "next/link"
 import moment from "moment/moment"
+import Image from "next/image"
+import ReactWhatsapp from "react-whatsapp"
 import { AuthContext } from "../../context/authContext"
 import Layout2 from "../../components/Layouts/Layout2"
 import styles from "../../styles/SingleListing.module.css"
@@ -25,16 +27,38 @@ const Listing = () => {
   const { currentUser } = useContext(AuthContext)
 
   const [listing, setListing] = useState({})
+
+  const [inquirePhone, setInquirePhone] = useState("")
+  const [inquireMessage, setInquireMessage] = useState("")
+
+  const [index, setIndex] = useState(0)
+
+  const stringImages = listing.img
+  let images
+  if (typeof stringImages !== "undefined") {
+    images = JSON.parse(stringImages)
+  }
+  // console.log(images)
+  // const arrayImages = Array.from(stringImages)
+
+  const handleArrow = (direction) => {
+    if (direction === "l") {
+      setIndex(index !== 0 ? index - 1 : 2)
+    }
+    if (direction === "r") {
+      setIndex(index !== 2 ? index + 1 : 0)
+    }
+  }
   const location = useRouter()
   const listingId = location.asPath.split("/")[2]
-
+  console.log(listing)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `process.env.REACT_APP_API_URL/listings/listing/${listingId}`
+          `${process.env.NEXT_PUBLIC_ENV}/listings/listing/${listingId}`
         )
-        // console.log(res)
+
         setListing(res.data)
       } catch (err) {
         console.log(err)
@@ -46,9 +70,10 @@ const Listing = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `process.env.REACT_APP_API_URL/listings/listing/${listingId}`,
+        `${process.env.NEXT_PUBLIC_ENV}/listings/listing/${listingId}`,
         { withCredentials: true }
       )
+      location.push("/listings")
     } catch (err) {
       console.log(err)
     }
@@ -76,112 +101,119 @@ const Listing = () => {
         <hr style={{ margin: "30px 0" }} />
         <div className={styles.singleListingContainer}>
           <div className={styles.singleListingLeft}>
-            <div className={styles.image1Container} key={listing.id}>
+            <div
+              className={styles.arrowContainer}
+              style={{ left: "5%" }}
+              onClick={() => handleArrow("l")}
+            >
               <img
-                alt=""
-                className={styles.listingsImage}
-                src="../../img/bg/bg1.jpg"
-                width="400%"
-                height="250%"
+                src="/img/arrow1.svg"
+                style={{ objectFit: "contain", layout: "fill" }}
               />
             </div>
+            <div
+              className={styles.wrapper}
+              style={{
+                transform: `translateX(${-68 * index}vw)`,
+                transition: "3s ease-in",
+                animation: "fadeIn 5s",
+              }}
+            >
+              {typeof images !== "undefined" ? (
+                <>
+                  {images.map((img, i) => (
+                    <div className={styles.listingImageContainer} key={i}>
+                      <img src={`../../../upload/${img}`} />
+                    </div>
+                  ))}
+                </>
+              ) : (
+                ""
+              )}
+            </div>
+            <div
+              className={styles.arrowContainer}
+              style={{ right: "5%", color: "white" }}
+              onClick={() => handleArrow("r")}
+            >
+              <img
+                src="/img/arrow2.svg"
+                style={{ objectFit: "contain", layout: "fill" }}
+              />
+            </div>
+
             <div className={styles.singleListingDescription}>
               <h3>Description</h3>
               <div className={styles.houseAmenities}>
                 <div className={styles.beds}>
-                  <p>icon</p>
-                  <div>
-                    <p>Beds</p>
-                    <p>4 beds</p>
+                  <p>
+                    <Image src="/img/bed.jpg" height="50px" width="50%" />
+                  </p>
+                  <div className={styles.bedsDiv}>
+                    <p style={{ fontWeight: "bold" }}>Beds</p>
+                    <p>{listing.bedrooms} beds</p>
                   </div>
                 </div>
                 <div className={styles.beds}>
-                  <p>icon</p>
-                  <div>
-                    <p>Area</p>
-                    <p>4 sqft</p>
+                  <p>
+                    <Image src="/img/area.jpg" height="50px" width="50%" />
+                  </p>
+                  <div className={styles.bedsDiv}>
+                    <p style={{ fontWeight: "bold" }}>Area</p>
+                    <p>{listing.area} sqft</p>
                   </div>
                 </div>
                 <div className={styles.beds}>
-                  <p>icon</p>
-                  <div>
-                    <p>Baths</p>
-                    <p>4 Bathrooms</p>
+                  <p>
+                    <Image src="/img/bathroom.jpg" height="50px" width="50%" />
+                  </p>
+                  <div className={styles.bedsDiv}>
+                    <p style={{ fontWeight: "bold" }}>Baths</p>
+                    <p>{listing.bathrooms} Bathrooms</p>
                   </div>
                 </div>
               </div>
-              <p>{listing.desc}</p>
+              <p className={styles.houseAmenitiesParagraph}>{listing.desc}</p>
 
               {currentUser.username === listing.username && (
-                <div className="edit">
-                  <Link href={`/add-listing?edit=1`} state={listing}>
+                <div className={styles.editDelete}>
+                  <Link href={`edit/${listingId}`} state={listing}>
                     {/* <img src={Edit} alt="" /> */}
-                    Edit
+                    <button>Edit</button>
                   </Link>
 
-                  <p onClick={handleDelete}>Delete</p>
-
-                  {/* <img onClick={handleDelete} src={Delete} alt="" /> */}
+                  <button
+                    style={{ backgroundColor: "purple", color: "white" }}
+                    onClick={handleDelete}
+                  >
+                    Delete
+                  </button>
                 </div>
               )}
             </div>
             <div className={styles.singleListingLocation}>
               <h3>Location</h3>
-              <div className={styles.houseAmenities}>
-                <div className={styles.beds}>
-                  <p>icon</p>
-                  <div>
-                    <p>Beds</p>
-                    <p>4 beds</p>
-                  </div>
-                </div>
-                <div className={styles.beds}>
-                  <p>icon</p>
-                  <div>
-                    <p>Area</p>
-                    <p>4 sqft</p>
-                  </div>
-                </div>
-                <div className={styles.beds}>
-                  <p>icon</p>
-                  <div>
-                    <p>Baths</p>
-                    <p>4 Bathrooms</p>
-                  </div>
-                </div>
-              </div>
-              <p>{listing.desc}</p>
-              {currentUser.username === listing.username && (
-                <div className="edit">
-                  <Link href={`/listings?listing=2`} state={listing}>
-                    {/* <img src={Edit} alt="" /> */}
-                    Edit
-                  </Link>
-                  {/* <img onClick={handleDelete} src={Delete} alt="" /> */}
-                </div>
-              )}
+
+              <p>No Location available yet!!</p>
             </div>
             <div className={styles.singleListingVideo}>
-              <h3>Location</h3>
+              <h3>Other Stats</h3>
               <div className={styles.houseAmenities}>
                 <div className={styles.beds}>
-                  <p>icon</p>
                   <div>
-                    <p>Beds</p>
-                    <p>4 beds</p>
+                    <p style={{ fontWeight: "bold" }}>Status</p>
+                    <p>{listing.stat}</p>
                   </div>
                 </div>
                 <div className={styles.beds}>
-                  <p>icon</p>
                   <div>
-                    <p>Area</p>
+                    <p style={{ fontWeight: "bold" }}>Amenities</p>
                     <p>4 sqft</p>
                   </div>
                 </div>
                 <div className={styles.beds}>
-                  <p>icon</p>
                   <div>
-                    <p>Baths</p>
+                    <p style={{ fontWeight: "bold" }}>User</p>
                     <p>4 Bathrooms</p>
                   </div>
                 </div>
@@ -198,11 +230,59 @@ const Listing = () => {
               )}
             </div>
           </div>
-          <div className={styles.singleListingRight}>2</div>
+          <div className={styles.singleListingRight}>
+            <div className={styles.listingsRightContainer}>
+              <div className={styles.listingsSearchCard}>
+                <h2>Search By Category</h2>
+                <Link className="link" href="/listings?cat=apartments">
+                  <button>Apartments</button>
+                </Link>
+                <Link className="link" href="/listings?cat=hotels">
+                  <button>Hotels</button>
+                </Link>
+                <Link className="link" href="/listings?cat=homes">
+                  <button>Homes</button>
+                </Link>
+                <Link className="link" href="/listings?cat=penthouses">
+                  <button>PentHouse</button>
+                </Link>
+              </div>
+              <div className={styles.listingsEnquireCard}>
+                <h2>Inquire Now</h2>
+                <form>
+                  <div>
+                    <label>Name</label>
+                    <input type="text" name="name" />
+                  </div>
+                  <div>
+                    <label>Phone</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      onChange={(e) => setInquirePhone(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label>Message</label>
+                    <input
+                      type="text"
+                      name="message"
+                      onChange={(e) => setInquireMessage(e.target.value)}
+                    />
+                  </div>
+                  <ReactWhatsapp number={inquirePhone} message={inquireMessage}>
+                    Open Whatsapp
+                  </ReactWhatsapp>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <p>Posted {moment(listing.date).fromNow()}</p>
+      <p style={{ marginLeft: "30px", marginBottom: "30px" }}>
+        Posted {moment(listing.date).fromNow()}
+      </p>
     </>
   )
 }

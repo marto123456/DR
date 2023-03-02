@@ -22,13 +22,13 @@ import { config } from "@fortawesome/fontawesome-svg-core"
 import { AuthContextProvider } from "../context/authContext"
 config.autoAddCss = false // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
-const MyApp = ({ Component, pageProps }) => {
-  const getLayout = Component.getLayout || ((PAGE) => PAGE)
-  return getLayout(
+function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page)
+
+  return (
     <AuthContextProvider>
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </AuthContextProvider>
   )
 }
-
 export default MyApp

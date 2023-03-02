@@ -48,7 +48,7 @@ ul.nav li.active {
 .tabContentContainer {
   display: flex;
   align-items: center;
-  padding: 20px 230px;
+  padding: 20px 130px;
 }
 
 .tabContentLeft {
@@ -61,10 +61,10 @@ ul.nav li.active {
   font-size: 28px;
   line-height: 28px;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 .tabContentLeft p {
-  color: #7a7a7a;
+  color: black;
   font-weight: 400;
   font-size: 14px;
   line-height: 23px;
@@ -86,7 +86,7 @@ ul.nav li.active {
 .tabButton {
   width: 103px;
   height: 36px;
-  background-color: #98948b;
+  background-color: #04534f;
   color: white;
   border: 1px solid #98948b;
   font-size: 15px;
@@ -118,7 +118,7 @@ ul.nav li.active {
   .tabButton {
     width: 103px;
     height: 36px;
-    background-color: #98948b;
+    background-color: #04534f;
     color: white;
     border: 1px solid #98948b;
     font-size: 15px;
@@ -221,7 +221,7 @@ ul.nav li.active {
   .tabButton {
     width: 103px;
     height: 36px;
-    background-color: #98948b;
+    background-color: #04534f;
     color: white;
     border: 1px solid #98948b;
     font-size: 15px;
@@ -324,7 +324,7 @@ ul.nav li.active {
   .tabButton {
     width: 103px;
     height: 36px;
-    background-color: #98948b;
+    background-color: #04534f;
     color: white;
     border: 1px solid #98948b;
     font-size: 15px;

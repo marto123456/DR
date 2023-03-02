@@ -88,6 +88,7 @@
   background-color: #04534f;
   border: none;
   color: white;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 481px) and (max-width: 1023px) {
@@ -166,6 +167,7 @@
     background-color: #04534f;
     border: none;
     color: white;
+    cursor: pointer;
   }
 }
 

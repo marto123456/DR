@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import Layout3 from "../components/Layouts/Layout3"
 import { AuthContext } from "../context/authContext"
 import Link from "next/link"
+import Image from "next/image"
 import styles from "../styles/Login.module.css"
 import { useRouter } from "next/router"
 
@@ -33,8 +34,17 @@ function Login() {
       <div className={styles.loginContainer}>
         <div className={styles.loginLeftContainer}>
           <div className={styles.loginLeft}>
+            <Link href="/">
+              <Image
+                height="50"
+                width="70"
+                src="/img/logo.png"
+                style={{ cursor: "pointer" }}
+              />
+            </Link>
+
             <h2>Discovereality</h2>
-            <h1>Welcome</h1>
+            <h1>Welcome Back</h1>
             <p>
               Find Apartments in Abuja. Sign Into your client area for
               personalized experience

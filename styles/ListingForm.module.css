@@ -4,7 +4,7 @@
 }
 
 .listingForm {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   background-color: white;
   padding-bottom: 80px;
@@ -105,4 +105,43 @@
 }
 .checked-item {
   text-decoration: line-through;
+}
+
+.imageforListing {
+  margin: 0 350px;
+  width: 400px;
+}
+
+/* Preview images css */
+
+.previewImages {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 20px;
+}
+.imageArrayContainer {
+  width: 45%;
+}
+.imageArrayContainer button {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  margin-left: 100px;
+  margin-top: -20px;
+  position: absolute;
+  z-index: 100;
+  background-color: red;
+  color: white;
+}
+
+.imageArrayContainer img {
+  height: 200px;
+  width: 100%;
 }

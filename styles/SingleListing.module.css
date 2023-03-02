@@ -25,32 +25,197 @@
 .singleListingLeft {
   width: 70%;
   margin-right: 30px;
+  position: relative;
+  overflow: hidden;
 }
-.singleListingLeft .listingsImage {
+
+.arrowContainer {
+  position: absolute;
+  width: 3%;
+  height: 5%;
+  top: -60%;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.wrapper {
+  display: flex;
+  width: 204vw;
+  height: 400px;
+}
+
+.listingImageContainer {
+  display: flex;
+  filter: brightness(30%);
+}
+.listingImageContainer img {
+  width: 68vw;
+  height: 400px;
+}
+/* .singleListingLeft .listingsImage {
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
-}
+} */
 .singleListingDescription {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
-  margin-bottom: 20px;
+  margin: 40px 0;
+  padding: 40px 0;
+}
+.singleListingDescription h3 {
+  margin: 20px 0;
 }
 
 .houseAmenities {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  line-height: 1rem;
+}
+.houseAmenitiesParagraph {
+  margin: 20px 0;
 }
 
 .beds {
   display: flex;
+  width: 100%;
+}
+.beds p {
+  width: 50%;
+}
+.bed .bedsDiv {
+  width: 50%;
+}
+.editDelete {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.editDelete button {
+  width: 30%;
+  padding: 10px 0;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .singleListingLocation {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
-  margin-bottom: 20px;
+  margin: 40px 0;
+  padding: 40px 0;
 }
 
 .singleListingVideo {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin: 40px 0;
+  padding: 40px 0;
+}
+
+.listingsSearchCard {
+  flex: 1;
+  height: 200px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
+  padding: 20px;
+  background-color: #04534f;
+  color: white;
+}
+.listingsSearchCard button {
+  padding: 4px 0;
+  margin: 1px 0;
+}
+
+.listingsEnquireCard {
+  flex: 1;
+  height: 400px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #04534f;
+  color: white;
+}
+.listingsEnquireCard form input {
+  margin-bottom: 20px;
+  height: 30px;
+}
+.listingsEnquireCard form button {
+  margin-bottom: 20px;
+  height: 30px;
+  background-color: #04534f;
+  color: white;
+  padding: 40px 0;
+  cursor: pointer;
+  border: none;
+}
+
+@media screen and (min-width: 200px) and (max-width: 767px) {
+  .singleListingContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .singleListingRight {
+    width: 100%;
+    margin-right: 30px;
+  }
+
+  .singleListingLeft {
+    width: 100%;
+    margin-right: 30px;
+  }
+  .singleListingLeft .listingsImage {
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 20px;
+  }
+  .singleListingDescription {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 20px;
+  }
+
+  .houseAmenities {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .beds {
+    display: flex;
+  }
+
+  .singleListingLocation {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 20px;
+  }
+
+  .singleListingVideo {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 20px;
+  }
+
+  .listingsSearchCard {
+    flex: 1;
+    height: 200px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .listingsEnquireCard {
+    flex: 1;
+    height: 400px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 5px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  .listingsEnquireCard form input {
+    margin-bottom: 20px;
+    height: 30px;
+  }
+  .listingsEnquireCard form button {
+    margin-bottom: 20px;
+    height: 30px;
+  }
 }

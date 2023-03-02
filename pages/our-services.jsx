@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import Layout2 from "../components/Layouts/Layout2"
 import Service from "../components/Service"
 import styles from "../styles/ourServices.module.css"
@@ -39,7 +40,9 @@ const ourServices = () => {
                 facilisi netus letius scelerisque nec fames torquent nulla
                 nullam erat.
               </p>
-              <button className={styles.ourServicesButton}>Contact Us</button>
+              <Link href="/contact">
+                <button className={styles.ourServicesButton}>Contact Us</button>
+              </Link>
             </div>
             <div className={styles.whatWeOfferRight}>
               <Service />
@@ -47,7 +50,6 @@ const ourServices = () => {
           </div>
         </div>
       </div>
-      <p>d</p>
     </>
   )
 }

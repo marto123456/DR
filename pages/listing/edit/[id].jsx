@@ -1,33 +1,74 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import axios from "axios"
+
 import dynamic from "next/dynamic"
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 import { useLocation } from "react-router-dom"
 import moment from "moment"
 import { useRouter } from "next/router"
-import styles from "../../styles/ListingForm.module.css"
-import FirstStep from "../ListingFormSteps/FirstStep"
-import SecondStep from "../ListingFormSteps/SecondStep"
-import ThirdStep from "../ListingFormSteps/ThirdStep"
+import Link from "next/link"
+import { AuthContext } from "../../../context/authContext"
+import styles from "../../../styles/ListingForm.module.css"
+import FirstStep from "../../../components/ListingFormSteps/edit/FirstStep"
+import SecondStep from "../../../components/ListingFormSteps/edit/SecondStep"
+import ThirdStep from "../../../components/ListingFormSteps/edit/ThirdStep"
+import Layout2 from "../../../components/Layouts/Layout2"
 
-function ListingForm({ children, state }) {
-  // const state = useRouter().state
-
-  const [title, setTitle] = useState(state?.title || "")
-  const [desc, setDesc] = useState(state?.desc || "")
-  const [price, setPrice] = useState(state?.price || "")
-  const [cat, setCat] = useState(state?.cat || "")
-  const [stat, setStat] = useState(state?.stat || "")
-  const [area, setArea] = useState(state?.area || "")
-  const [bathrooms, setBathrooms] = useState(state?.bathrooms || "")
-  const [bedrooms, setBedrooms] = useState(state?.bedrooms || "")
+function editListing() {
+  const [title, setTitle] = useState("")
+  const [desc, setDesc] = useState("")
+  const [price, setPrice] = useState("")
+  const [cat, setCat] = useState("")
+  const [stat, setStat] = useState("")
+  const [area, setArea] = useState("")
+  const [bathrooms, setBathrooms] = useState("")
+  const [bedrooms, setBedrooms] = useState("")
+  const [user, setUser] = useState()
   const [active, setActive] = useState(false)
 
   const [checked, setChecked] = useState([])
   const [file, setFile] = useState([])
-  const [fileURLs, setFileURLs] = useState([])
+  const [image, setImage] = useState([])
+  const [file2, setFile2] = useState([])
   const [page, setPage] = useState(0)
+
+  const { currentUser } = useContext(AuthContext)
+
+  const [listing, setListing] = useState({})
+  const location = useRouter()
+  const listingId = location.asPath.split("/")[3]
+
+  const onChangeTitle = (newValue) => {
+    console.log(setTitle(newValue))
+  }
+
+  const router = useRouter()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_ENV}/listings/listing/${listingId}`
+        )
+        console.log(res)
+        setTitle(res.data.title)
+        setDesc(res.data.desc)
+        setPrice(res.data.price)
+        setFile2(res.data.img)
+        setBathrooms(res.data.bathrooms)
+        setBedrooms(res.data.bedrooms)
+        setArea(res.data.area)
+        setCat(res.data.cat)
+        setStat(res.data.stat)
+        setUser(res.data.username)
+        // setChecked(res.data.checked)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    fetchData()
+  }, [listingId])
 
   //for single upload
   // const upload = async () => {
@@ -44,8 +85,6 @@ function ListingForm({ children, state }) {
   //     console.log(err)
   //   }
   // }
-
-  // console.log(file)
 
   // for multiple uploads
   const upload = async () => {
@@ -85,7 +124,11 @@ function ListingForm({ children, state }) {
             setActive={setActive}
             checked={checked}
             setChecked={setChecked}
-            state={state}
+            listing={listing}
+            setListing={setListing}
+            area={area}
+            setArea={setArea}
+            onChangeTitle={onChangeTitle}
           />
         )
       case 1:
@@ -96,10 +139,18 @@ function ListingForm({ children, state }) {
             price={price}
             active={active}
             setActive={setActive}
+            area={area}
+            setArea={setArea}
             checked={checked}
             setChecked={setChecked}
+            image={image}
+            setImage={setImage}
             file={file}
             setFile={setFile}
+            file2={file2}
+            setFile2={setFile2}
+            listing={listing}
+            setListing={setListing}
           />
         )
       case 2:
@@ -118,6 +169,8 @@ function ListingForm({ children, state }) {
             setBathrooms={setBathrooms}
             bedrooms={bedrooms}
             setBedrooms={setBedrooms}
+            listing={listing}
+            setListing={setListing}
           />
         )
       default:
@@ -138,42 +191,63 @@ function ListingForm({ children, state }) {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-
     // const imgUrl = await upload();
     const imgUrl = await upload()
     try {
-      state
-        ? await axios.put(
-            `http://localhost:8800/api/v2/listings/listing/${state.id}`,
-            {
-              title,
-              desc,
-              // cat,
-              // img: file ? imgUrl : "",
-            }
-          )
-        : await axios.post(
-            `${process.env.NEXT_PUBLIC_ENV}/listings/listing/`,
-            {
-              title,
-              desc,
-              price,
-              cat,
-              stat,
-              amenities: checked,
-              area,
-              bedrooms,
-              bathrooms,
-              img: file ? imgUrl : "",
-
-              date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-            },
-            { withCredentials: true }
-          )
-      useRouter().push("/listings")
+      await axios.put(
+        `${process.env.NEXT_PUBLIC_ENV}/listings/listing/${listingId}`,
+        {
+          title,
+          desc,
+          price,
+          cat,
+          stat,
+          amenities: checked,
+          area,
+          bedrooms,
+          bathrooms,
+          img: file ? imgUrl : "",
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+        },
+        { withCredentials: true }
+      )
+      Router.push("/listings")
     } catch (err) {
       console.log(err)
     }
+  }
+
+  if (currentUser.username != user) {
+    return (
+      <div
+        style={{
+          margin: "100px 0",
+          padding: "100px 0",
+          width: "10px auto",
+          background: "green",
+          color: "white",
+          textAlign: "center",
+        }}
+      >
+        <h2>Sorry, You are not allowed to view this page{listing.username}</h2>
+        <Link href="/">
+          <button
+            style={{
+              padding: "20px",
+              width: "200px",
+              background: "white",
+              color: "green",
+              marginTop: "50px",
+              cursor: "pointer",
+              fontWeight: "800",
+            }}
+          >
+            Access Denied
+          </button>
+        </Link>
+      </div>
+    )
+    router.push("/login")
   }
 
   return (
@@ -221,4 +295,6 @@ function ListingForm({ children, state }) {
   )
 }
 
-export default ListingForm
+editListing.getLayout = (page) => <Layout2>{page}</Layout2>
+
+export default editListing

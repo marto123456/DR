@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-
+import Image from "next/image"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Layout3 from "../components/Layouts/Layout3"
@@ -35,6 +35,14 @@ function Register() {
       <div className={styles.loginContainer}>
         <div className={styles.loginLeftContainer}>
           <div className={styles.loginLeft}>
+            <Link href="/">
+              <Image
+                height="50"
+                width="70"
+                src="/img/logo.png"
+                style={{ cursor: "pointer" }}
+              />
+            </Link>
             <h2>Discovereality</h2>
             <p>Find Apartments in Abuja. You should sign up</p>
             <h1>Welcome !</h1>
